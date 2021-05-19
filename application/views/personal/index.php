@@ -18,7 +18,13 @@
                 <th>Email</th><td><?php echo $user_info->email; ?></td>
             </tr>
             <tr>
-                <th>Registration Date</th><td><?php echo $user_info->date; ?></td>
+                <th>Registration Date</th>
+                <td>
+                    <?php
+                        $date_corection = $this->date_utills->convertDate($user_info->date);                       
+                        echo date('l jS \of F Y H:i:s', strtotime(str_replace($date_corection, "", $user_info->date)));                        
+                    ?>
+                </td>
             </tr>
         </table>
         <div class="d-grid gap-2 col-5 mx-auto">
