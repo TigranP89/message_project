@@ -24,7 +24,12 @@
                     <a href="http://localhost/index.php/users/callOtherUser/<?php echo $value->id;?>"><?php echo $value->fname.' '.$value->lname; ?></a>                   
                 </td>
 
-                <td><?php echo $value->date; ?></td>
+                <td>
+                    <?php
+                        $date_corection = $this->date_utills->convertDate($value->date);                       
+                        echo date('l jS \of F Y H:i:s', strtotime(str_replace($date_corection, "", $value->date)));
+                    ?>
+                </td>
             </tr>                
         <?php }  ?>	
     </table>

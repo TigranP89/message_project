@@ -10,6 +10,7 @@ class Message extends CI_Controller {
         $this->load->model('user_model');
         $this->load->model('message_model');
         $this->load->model('comment_model');
+        $this->load->model('date_utills');
        
     }
     public function index(){
@@ -49,7 +50,7 @@ class Message extends CI_Controller {
             $userId = $this->session->userdata('userId');
             $data= array(
                 'record' => $_POST['text'],
-                'date' => date('l jS \of F Y H:i:s'),
+                'date' => date('l jS \of F Y h:i:s A'),
 		'user_id' => $userId
             );
             $this->message_model->insert_user_message($data);
@@ -93,7 +94,7 @@ class Message extends CI_Controller {
             
             $data= array(
                 'content' => $_POST['comment_text'],
-                'date' => date('l jS \of F Y H:i:s'),
+                'date' => date('l jS \of F Y h:i:s A'),
                 'message_id' => $_POST['id'],
                 'user_id' => $userId,            
             );

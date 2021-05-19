@@ -34,16 +34,6 @@ class Message_model extends CI_Model {
         return $query->result();
 	
     }
-    
-   /*public function insert_like($like){
-	$data= array(
-            'submit'=>$_POST['submit'],           
-            );		
-	$this->db->insert('message', $data);
-	return TRUE;
-    }*/
-    
-    /**/
     public function get_other_message($id){
 
         $query = $this->db->query("SELECT * FROM message WHERE user_id = " . 	$id);		

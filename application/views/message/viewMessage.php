@@ -9,7 +9,12 @@
             </article>
             
             <div>
-                <snap class="text-center m-3 p-3">(<?php echo $value->date; ?>)</snap>
+                <snap class="text-center m-3 p-3">
+                    (<?php
+                        $date_corection = $this->date_utills->convertDate($value->date);                       
+                        echo date('l jS \of F Y H:i:s', strtotime(str_replace($date_corection, "", $value->date)));
+                    ?>)
+                </snap>
             </div>
             
             <button type="submit" class="btn btn-danger m-2" name="submit" value="Submit">
@@ -58,7 +63,12 @@
             </article>
 
             <div>
-                <snap class="text-center m-3 p-3">(<?php echo $value->date; ?>)</snap>
+                <snap class="text-center m-3 p-3">
+                    (<?php 
+                        $date_corection = $this->date_utills->convertDate($value->date);                       
+                        echo date('l jS \of F Y H:i:s', strtotime(str_replace($date_corection, "", $value->date)));
+                    ?>)
+                </snap>
             </div>
             
             <div class="btn-group" role="group" aria-label="Basic example">

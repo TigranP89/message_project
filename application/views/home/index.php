@@ -23,7 +23,12 @@
                 <snap class="text-center font-italic"><?php echo $value->record; ?></snap>
             </article>
             <div>
-                <snap class="text-center m-3 p-3">(<?php /*$k="$value->date";*/ /*echo date_format($k, 'Y-m-d H:i:s');*/ /*$k->format('Y-m-d H:i:s')*/ echo /*changeDateFormat('d-m-Y',$value->date)*/ /*date('l jS \of F Y H:i:s', strtotime($k))*/date('d/M/Y', strtotime($value->date)); ?>)</snap>  
+                <snap class="text-center m-3 p-3">(
+                    <?php   
+                        $date_corection = $this->date_utills->convertDate($value->date);                       
+                        echo date('l jS \of F Y H:i:s', strtotime(str_replace($date_corection, "", $value->date)));
+                    ?>)
+                </snap>  
             </div>
             
             <div class="btn-group" role="group" aria-label="Basic example">

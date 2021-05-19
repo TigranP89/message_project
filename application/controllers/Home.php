@@ -11,6 +11,7 @@ class Home extends CI_Controller{
         $this->load->model('message_model');
         $this->load->model('user_model');
         $this->load->model('comment_model');
+        $this->load->model('date_utills');
     }
     
     public function index(){

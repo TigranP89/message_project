@@ -16,7 +16,14 @@
             <th>Email</th><td><?php echo $other_info->email; ?></td>
         </tr>
         <tr>
-            <th>Registration Date</th><td><?php echo $other_info->date; ?></td>
+            <th>Registration Date</th>
+            <td>
+                <?php
+                    
+                    $date_corection = $this->date_utills->convertDate($other_info->date);                       
+                    echo date('l jS \of F Y H:i:s', strtotime(str_replace($date_corection, "", $other_info->date)));
+                ?>
+            </td>
         </tr>
     </table>
 </div>
@@ -30,7 +37,12 @@
                     <snap class="text-center font-italic"><?php echo $value->record; ?></snap>
                 </article>
                 <div>
-                    <snap class="text-center m-3 p-3">(<?php echo $value->date; ?>)</snap>
+                    <snap class="text-center m-3 p-3">
+                        (<?php
+                            $date_corection = $this->date_utills->convertDate($value->date);                       
+                            echo date('l jS \of F Y H:i:s', strtotime(str_replace($date_corection, "", $value->date)));
+                        ?>)
+                    </snap>
                 </div>
 
                 <button type="button" class="btn btn-danger m-2">

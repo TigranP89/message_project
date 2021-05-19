@@ -11,7 +11,7 @@ class User_model extends CI_Model {
             'lname'=>$_POST['lname'],
             'email'=>$_POST['email'],
             'password'=>$_POST['password'],
-            'date'=> date('l jS \of F Y H:i:s')
+            'date'=> date('l jS \of F Y h:i:s A')
             );		
 	$this->db->insert('user', $data);
 	return TRUE;
@@ -42,10 +42,8 @@ class User_model extends CI_Model {
 	return TRUE;
     }
     /*Users*/
-    public function other_personal_info($id){
-        //var_dump($id);exit;
-	$query=$this->db->query("SELECT * FROM user WHERE id =" . $id);
-        //var_dump($query->result()[0]);exit;
+    public function other_personal_info($id){        
+	$query=$this->db->query("SELECT * FROM user WHERE id =" . $id);        
 	return $query->result()[0];
     }
     
